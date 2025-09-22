@@ -88,3 +88,19 @@ operationStr = 'a + 25 - 40 - a / 2 + 5 * 3';
 
 console.log(myOperation);
 console.log(operationStr);
+
+let myMathOperation = (a / 10) + (a * 5) - 10;
+
+let myMathOperationString = '(' + a + ' / 10) + (' + a + ' * 5 ) -10';
+
+console.log(myMathOperation);
+
+console.log(myMathOperationString);
+
+let res = 10;
+
+let firsTaskOperation = 'res + (res*3) - (10+res)';
+
+let firsTaskOperationString = res + ' + (' + res + '*3) - (10+' + res + ')';
+
+console.log(firsTaskOperationString);
