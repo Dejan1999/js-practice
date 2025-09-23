@@ -104,3 +104,105 @@ let firsTaskOperation = 'res + (res*3) - (10+res)';
 let firsTaskOperationString = res + ' + (' + res + '*3) - (10+' + res + ')';
 
 console.log(firsTaskOperationString);
+
+let copyOfFirstTaskOperation = firsTaskOperation;
+
+console.log(firsTaskOperation);
+console.log(copyOfFirstTaskOperation);
+
+firsTaskOperation = 555;
+
+console.log(firsTaskOperation);
+console.log(copyOfFirstTaskOperation); // stay same as it was
+
+firsTaskOperation = 'res + (res*3) - (10+res)';
+
+let templateLiteralsVariable = `${res} + (${res} * 3) - (10 + ${res})`;
+
+console.log(templateLiteralsVariable);
+
+let secondTaskOperation = 'res * (15 * res) - (res / 2) + res';
+
+let secondTaskOperationString = `${res} * ( 15 * ${res}) - (${res} / 2) + ${res}`;
+
+console.log(secondTaskOperationString);
+
+let gotToNewLineString = `My string can go \nto next line.`; // \n brake string
+
+console.log(gotToNewLineString);
+
+// ! Functions
+
+function helloWorld(planetName) {
+    alert(`Hello planet ${planetName}`);
+}
+
+// helloWorld('Jupiter');
+
+// helloWorld('Earth');
+
+// helloWorld('Mars');
+
+const result = 'Hello JS!';
+
+function add(number1, number2) {
+    const result = number1 + number2;
+    console.log(`Testing result variable: ${result}`);
+    //  return result;
+    return `Result of add function is: ${result}`;
+    // return `Result of add function is ${number1+number2}`;
+}
+
+console.log(result);
+
+console.log(add(50,100));
+
+console.log(add(3,10));
+
+function printVariable() {
+    console.log(`Testing anotherX variable: ${anotherX}`);
+}
+
+let anotherX;
+
+anotherX = 55;
+
+printVariable();
+
+// ! Homework
+
+/* 1. Kreirati dve varijable. Jedna neka bude tipa number i neka se zove userInput (na koju god vrednost je postavite) i druga neka se naziva currentResult i nemojte je postaviti ni na kakvu vrednost.
+Postavite currentResult varijablu na vrednost userInput plus neki broj (npr 20).
+U naredne 3 linije koda, varijablu currentResult promenite u svakoj narednoj liniji koda operacijama oduzimanja, mnozenja i deljenja nad tom currentResult varijablom i svaki put ispisati vrednost varijable na konzoli u formatu koji zelite s tim da pre toga stoji prefiks `Current result is: `
+Na kraju varijablu currentResult ispisati u okviru alert prozora, a userInput varijablu ispisati samo na konzoli.
+
+2. Kreirati funkciju square() koja ce broj prosledjen kao parametar podici na kvadrat.
+Rezultat vratiti u formatu ‘Result is: broj’.
+Funkciji kao argument proslediti odredjeni broj (npr 5).*/
+
+// 1.
+
+let userInput = 38;
+let currentResult;
+
+currentResult = userInput + 64;
+
+currentResult = currentResult - 12;
+console.log(`Current result is: ${currentResult}`);
+
+currentResult = currentResult / 2;
+console.log(`Current result is: ${currentResult}`);
+
+currentResult = currentResult * 25;
+console.log(`Current result is: ${currentResult}`);
+
+alert(currentResult);
+console.log(userInput);
+
+// 2. 
+function squareNumber(squareNum) {
+    const finalResult = squareNum**2;
+    return `Result is: ${finalResult}`;
+}
+
+console.log(squareNumber(5));
