@@ -394,7 +394,7 @@ console.log(typeof 'my random string'); // string
 
 // 1. Zadatak:
 
-let firstParsedVariable = 33 + parseInt('27'); 
+let firstParsedVariable = 33 + +'27'; 
 
 console.log(firstParsedVariable);    
 
@@ -440,3 +440,6 @@ firstParsedVariable = null;
 // 8. Zadatak:
 
 console.log(typeof(firstParsedVariable)); // object
+
+console.log(`-------------------------------`);
+
