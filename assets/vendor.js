@@ -4,7 +4,7 @@ const userInput = document.getElementById('input-number');
 const multiplyBtn = document.getElementById('btn-multiply');
 const divideBtn = document.getElementById('btn-divide');
 const addBtn = document.getElementById('btn-add');
-const substractBtn = document.getElementById('btn-substract');
+const subtractBtn = document.getElementById('btn-subtract');
 const clearBtn = document.getElementById('btn-clear');
 
 
@@ -15,5 +15,3 @@ function outputResult (result, text) {
     currentCalculationOutput.textContent = text;
     currentCalculationResult.textContent = result;
 }
-
-
