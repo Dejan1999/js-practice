@@ -443,3 +443,159 @@ console.log(typeof(firstParsedVariable)); // object
 
 console.log(`-------------------------------`);
 
+// ? false -> je default vrednost
+let myBool; // false
+
+// ! Operatori poredjenja (== i ===)
+
+// ? operator == -> operande poredi samo po vrednosti (double (loose) equality)
+
+console.log(`10 == 10 is: ${10 == 10}`); // true
+
+console.log(`50 != 50 is: ${50 != 50}`); // flase -> ovo je NOT operator !=
+
+console.log(`Comparing strings 'Hello' and 'Hello': ${'Hello' == 'Hello'}`); // true
+
+console.log(`Comparing strings 'World' and 'Winter': ${'World' == 'Winter'}`); // false
+
+console.log(`Comparing strings 'World' and 'world': ${'World' == 'world'}`); // flase
+
+console.log(`Comparing not equality of strings 'World' and 'Winter': ${'World' != 'Winter'}`); // true
+
+console.log(`100 and '100'is equal? : ${100 == '100'}`); // true
+
+// ? operator === -> operande poredi i po vrednosti i po tipu vrednosti (triple (strict) equality)
+
+console.log(`100 and '100'is equal? : ${100 ==='100'}`); // false
+
+console.log(`100 and '100'is equal? : ${100 === parseInt('100')}`); // true
+
+console.log(`100 and '100'is not equal? : ${100 !== parseInt('100')}`); // false
+
+// ! Poredjenje vrednosti po: >, <, >=, <=
+
+console.log(`25 > 3 is: ${25 > 3}`); // true
+
+console.log(`-17.7 < 0 is: ${-17.7 < 0}`) // ture
+
+console.log(`44 >= 44 is: ${44 >= 44}`); // true
+
+console.log(`2 <= 2 is: ${2 <= 2}`); // true
+
+console.log(`33 > '12' is: ${33 > '12'}`); // true
+
+console.log(`33 < '11' is: ${33 < '11'}`); // false
+
+// ? Pordjenje stringova
+// b > a 
+
+console.log(`'ab' > 'aa' is: ${'ab' > 'aa'}`); // true
+
+console.log(`'c' > 'C' is: ${'c' > 'C'}`); // true
+
+console.log(`'a' > 'B' is: ${'a' > 'B'}`); // true
+
+// ! STATMENTI(blokovi):
+
+// 1. IF blokovi (IF statment):
+
+if (5 === 5) {
+    console.log(`5 is equal to 5`);
+}
+
+if (20 === '20') {
+    console.log(`20 is equal to '20'`);
+}
+
+if (20 !== '20') {
+    console.log(`20 is not equal to '20' by triple equality.`);
+}
+
+// primer uz promt prozor
+
+console.log(`-----------IF-BLOKOVI-------------`);
+
+const number = prompt('Eneter your number: ');
+
+console.log(typeof number); // prompt prihvat string zato vrac string iako upisemo broj
+
+if (number > 0) {
+    console.log(`Your number ${number} is greater than 0.`);
+}
+
+// 1. IF-ELSE blokovi:
+
+console.log(`-----------IF-ELSE-BLOKOVI-------------`);
+
+if (number > 0) {
+    console.log(`Your number ${number} is greater than 0.`);
+} else {
+    console.log(`Your number ${number} is less than 0.`);
+}
+
+// 1. IF-ELSE IF-ELSE blokovi:
+
+console.log(`-----------IF-ELSE IF-ELSE-BLOK-------------`);
+
+if (number > 0) {
+    console.log(`Your number ${number} is greater than 0.`);
+} else if (number < 0) { 
+    console.log(`Your number ${number} is less than 0.`);
+} else {
+    console.log(`Your number ${number} is eqaul to 0.`);
+}
+
+// ! Ugnjezdeni IF-ELSE(nest-ovani) blokovi:
+
+console.log(`-----------Ugnjezdeni IF-ELSE-BLOK-------------`);
+
+if (number >= 0) {
+    if (number > 0) {
+        console.log(`Your number ${number} is greater than 0.`);
+    } else {
+        console.log(`Your number ${number} is eqaul to 0.`);
+    }
+} else {
+    console.log(`Your number ${number} is less than 0.`);
+}
+
+// ! Poredjenje objekata i nizova
+
+const firstCourse = {
+    name: 'Java'
+}
+
+const secondCourse = {
+    name: 'Java'
+}
+
+console.log(`Comparing objects: ${firstCourse === secondCourse}`); // false 
+
+console.log(`Comparing objects: ${firstCourse == secondCourse}`); // false 
+
+const courses = ['Java', 'Javascript', 'C#'];
+
+const otherCourses = ['Java', 'Javascript', 'C#'];
+
+console.log(`Comparing arrays: ${courses === otherCourses}`); // false
+
+console.log(`Comparing arrays: ${courses == otherCourses}`); // false
+
+// ! Poredjenje uz vise logickih uslova(and,or,not(!)):
+
+// true i false => false
+// false i false => false
+// true i true => true
+
+console.log(`---------AND(&&)-OR-NOT (!)--------------`);
+
+// '33'
+if (number > 0 && number === 33) {
+    console.log(`Your number ${number} is exactly 33 wich is greater than 0!`)
+}
+
+const parsedNumber = parseInt(number); // '33' -> 33
+
+if (parsedNumber > 0 && parsedNumber === 33) {
+    console.log(`Your number ${parsedNumber} is exactly 33 wich is greater than 0!`)
+}
