@@ -517,7 +517,7 @@ console.log(`-----------IF-BLOKOVI-------------`);
 
 const number = prompt('Eneter your number: ');
 
-console.log(typeof number); // prompt prihvat string zato vrac string iako upisemo broj
+console.log(typeof number); // prompt prihvat string zato vraca string iako upisemo broj
 
 if (number > 0) {
     console.log(`Your number ${number} is greater than 0.`);
@@ -589,6 +589,8 @@ console.log(`Comparing arrays: ${courses == otherCourses}`); // false
 
 console.log(`---------AND(&&)-OR-NOT (!)--------------`);
 
+// ! && logicki operator:
+
 // '33'
 if (number > 0 && number === 33) {
     console.log(`Your number ${number} is exactly 33 wich is greater than 0!`)
@@ -599,3 +601,240 @@ const parsedNumber = parseInt(number); // '33' -> 33
 if (parsedNumber > 0 && parsedNumber === 33) {
     console.log(`Your number ${parsedNumber} is exactly 33 wich is greater than 0!`)
 }
+
+// TODO 5. cas domaci
+/**
+* 1. Kreirati dve varijable tipa number sa vrednostima 30 i 50
+* 2. Uporediti varijable koristeci == i === i rezultate poredjenja ispisati na konzoli
+* 3. Uporediti varijable koristeci != i !== i rezultate poredjenja ispisati na konzoli
+* 4. Rezultat poredjenja iz 2. zadatka invert-ovati uz NOT operator i ispisati na konzoli
+* 5. Kreirati 3. varijablu sa vrednoscu '30' (tipa string)
+* 6. Uporediti varijablu sa vrednoscu 30 (number) i '30' (string) pomocu oba tipa equality operatora (== i ===), uporediti razlike rezultata poredjenja
+* 7. Kreirati 4. varijablu (npr. promptAnswer) cija se vrednost dobija kroz prompt prozor browser-a
+* 8. Vrednost varijable proveriti kroz if - else if - else uslove i shodno tome ispisati status o varijabli u formatu `Value ${promptAnswer} is ________`
+*/
+
+// 1.
+const myNum1 = 30;
+
+const myNum2 = 50;
+
+// 2.
+console.log(`Comparing variables myNum1 and myNum2 by loose equality: ${myNum1 == myNum2}`); // false
+
+console.log(`Comparing variables myNum1 and myNum2 by strict equality: ${myNum1 === myNum2}`); // false
+
+// 3.
+console.log(`Comparing variables myNum1 and myNum2 by not equality: ${myNum1 != myNum2}`); // true
+
+console.log(`Comparing variables myNum1 and myNum2 by not equality: ${myNum1 !== myNum2}`); // true
+
+// 4.
+console.log(`Invert loose equality result: ${!(myNum1 == myNum2)}`); // true 
+
+console.log(`Invert strict equality result: ${!(myNum1 === myNum2)}`); // true 
+
+// 5.
+const myStr = '30';
+
+// 6.
+console.log(`Comparing myNum1 and myStr variables by double equality: ${myNum1 == myStr}`); // true
+
+console.log(`Comparing myNum1 and myStr variables by triple equality: ${myNum1 === myStr}`); // false
+
+// 7.
+const promptAnswer = prompt('Write some number:');
+
+// 8.
+if (promptAnswer > 11) {
+    console.log(`Value ${promptAnswer} is greater than 11.`);
+} else if (promptAnswer < 11) {
+     console.log(`Value  ${promptAnswer} is less than 11.`);
+} else {
+    console.log(`Value ${promptAnswer} is exactly 11.`);
+}
+
+console.log(`----------------------------`);
+ 
+
+// ! OR logicki operator:
+
+if (parsedNumber > 0 || parsedNumber < 0) {
+    console.log(`1st log -> Number ${parsedNumber} is either positive or negative`);
+}
+
+// ! Kombinovanje logickih operatora:
+// && > ||
+
+if (parsedNumber > 0 && parsedNumber === 5 || parsedNumber < 0) {
+    console.log(`2nd log -> Number ${parsedNumber} is either positive or negative`); 
+}
+
+if ((parsedNumber > 0 && parsedNumber === 5) || parsedNumber < 0) {
+    console.log(`2nd log -> Number ${parsedNumber} is either positive or negative`); 
+}
+
+// ! Ternarni(kondicioni) operator:
+
+let answer = (parsedNumber < 0) ? `${parsedNumber} is negative number` : `${parsedNumber} is equal or greater than 0.`;
+
+console.log(answer);
+
+// ? Kombinovanje if-else blokova i trenanrnih operatora:
+
+if (parsedNumber === 0) {
+    console.log(`${parsedNumber} is equal to 0.`);
+} else {
+    let answer = (parsedNumber < 0) ? `${parsedNumber} is negative number` : `${parsedNumber} is equal or greater than 0.`;
+    console.log(answer);
+}
+
+// ! TRUTHY and FALSY vrednosti:
+
+// FALSY vrednosti: false, '', ``, "", 0, -0, 0n, NaN, null, undefined
+// TRUTHY vrednosti: sve sto nije gore navedeno: ('H', true, 12, -41.14, itd...)
+
+// const falsyValue = '';
+// const truthyValue = 'JS is great!';
+
+const falsyValue = 0;
+const truthyValue = 111;
+
+if (falsyValue) {
+    console.log(`Entered FALSy block.`);
+}
+
+if (truthyValue) {
+    console.log(`Entered TRUTHY block`);
+}
+
+// primer:
+
+const answerOfOperation = parsedNumber > 0 && parsedNumber < 50;
+
+console.log(`Answer of operation variable value: ${answerOfOperation}`);
+
+if (answerOfOperation) {
+    console.log(`Your number is: ${parsedNumber}`);
+}
+
+// primer:
+
+let userCase; // undefined
+
+if (userCase) {
+    console.log(`A user has entered: ${userCase}`)
+} else if (userCase === null) {
+    console.log(`User case vaule is null.`);
+} else {
+    console.log(`None of above.`);
+}
+
+// * Moguce je konvertovati(pretboriti) truthy i falsy vrednosti u false ili true:
+
+let answerOfOperationConverted = !!answerOfOperation;
+
+console.log(answerOfOperationConverted);
+
+// * Moguce je definisati vrednost varijable na osnovu OR operatora(||):
+
+let userInputName = prompt(`Enter your user name:`);
+
+let userName = userInputName || 'Default User Name';
+
+console.log(`A name that User has provided is: ${userName}`);
+
+// ? duzi nacin ovoga od gore.
+// let userName;
+// if (userInputName) {
+//     userName = userInputName;
+// } else {
+//     userName = 'Default Name:';
+// }
+
+// * Moguce je definisati vrednost varijable na osnovu AND operatora(&&):
+
+let registredUser = true;
+
+let userName1 = registredUser && 'dejan123';
+
+console.log(`User name 1 value: ${userName1}`);
+
+console.log(`-----------------------------`);
+
+// ! SWICH case:
+
+const mathGrade = 4;
+
+switch(mathGrade) {
+    case 1: 
+        console.log(`Math grade is: 1`);
+        break;
+    case 2: 
+        console.log(`Math grade is: 2`);
+        break;   
+    case 3: 
+        console.log(`Math grade is: 3`);
+        break;
+    case 4: 
+        console.log(`Math grade is: 4`);
+        break;
+    case 5: 
+        console.log(`Math grade is: 5`);
+        break;            
+}
+
+console.log(`-----------------------------`);
+
+// ! Petlje(loop):
+
+/**
+ * 1. for -> koristi se za pozivanje nekog koda nekoliko puta.
+ * 2. for-of -> koristi se za pozivanje nad svakim elementom nekog niza.
+ * 3. for-in -> koristi se za vracanje svih KEY-eva nekog objekta(mogu se i vratiti vrednosti).
+ * 4. while -> izvrsava se dok je neki logicki uslov zadovoljen.
+ * 5. do-while -> koristi se kada želimo da se blok koda izvrši barem jednom, bez obzira na to da li je uslov ispunjen.
+ *  Nakon prvog izvršavanja, petlja proverava uslov — ako je uslov tačan (true),
+ *  izvršavanje se ponavlja; ako nije (false), petlja se prekida.
+ */
+
+// ! FOR petlja:
+
+for(let counter = 1; counter <= 5; counter++) {
+    console.log(`Counter is ${counter}`);
+}
+
+// primer -> program koji racuna zbir prvih 100 prirodnih brojeva:
+
+let sum = 0;
+
+for(let i = 1; i <= 100; i++) {
+    sum += i;
+}
+
+console.log(`Sum of first 100 natural number is: ${sum}`);
+
+// TODO: 
+
+// 1. Uporediti vrednost kreirane varijable (const someNum = prompt('Please enter your number')) pomocu ternarnog operatora tako da se ispise da li je broj pozitivan ili negativan
+// 2. Dodati OR (||) logicki operator kako bi se proverilo da li je someNum vrednost nula ili veca od nule i rezultat ispisati na konzoli zajedno
+// 3. Dodati breakpoint u prethodnom izvrsavanju if bloka i utvrditi potencijalnu gresku na osnovu iscitavanja vrednosti
+// 4. za svaku liniju koda u nastavku ispisati sta vraca:
+// /**
+// * const userEmail = 'marko@gmail.com';
+// const backupEmail = '';
+// console.log(userEmail === 'marko@gmail.com');
+// console.log(userEmail);
+// console.log(userEmail || null);
+// console.log(backupEmail || 'milan@gmail.com');
+// console.log(backupEmail || '');
+// console.log(backupEmail || null || 'petar@gmail.com');
+// console.log(userEmail && 'petar@gmail.com');
+// console.log(backupEmail && 'petar@gmail.com');
+// console.log(userEmail && '');
+// *
+// */
+// 5. Kreirati varijablu "dayOfTheWeek" i postaviti na danasnji dan (hardkodovati, npr: 'tuesday'). Promeniti case-ove switch opcijom i u skladu sa tim ispisati vrednost na konzoli.
+// 6. Ispisati proizvod svih brojeva od 1 do 10
+
+
