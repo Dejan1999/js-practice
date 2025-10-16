@@ -730,7 +730,7 @@ if (userCase) {
     console.log(`None of above.`);
 }
 
-// * Moguce je konvertovati(pretboriti) truthy i falsy vrednosti u false ili true:
+// * Moguce je konvertovati(pretvoriti) truthy i falsy vrednosti u false ili true:
 
 let answerOfOperationConverted = !!answerOfOperation;
 
@@ -814,6 +814,8 @@ for(let i = 1; i <= 100; i++) {
 
 console.log(`Sum of first 100 natural number is: ${sum}`);
 
+// ! URADI ZA VIKEND OBAVEZNO:
+
 // TODO: 
 
 // 1. Uporediti vrednost kreirane varijable (const someNum = prompt('Please enter your number')) pomocu ternarnog operatora tako da se ispise da li je broj pozitivan ili negativan
@@ -837,4 +839,100 @@ console.log(`Sum of first 100 natural number is: ${sum}`);
 // 5. Kreirati varijablu "dayOfTheWeek" i postaviti na danasnji dan (hardkodovati, npr: 'tuesday'). Promeniti case-ove switch opcijom i u skladu sa tim ispisati vrednost na konzoli.
 // 6. Ispisati proizvod svih brojeva od 1 do 10
 
+// ! DOMACI ZA VIKEND(ovaj iznad);
+
+
+console.log(`-----------------------`);
+
+// ! FOR-OF loop:
+
+const programingLanguages = ['JavaScript', 'C#', 'Phyton', 'Solidity', 'Java'];
+
+console.log(`-----Izvlacenje elemenata iz niza prvo FOR loop-om`);
+
+for(let i = 0; i < programingLanguages.length; i++) {
+    console.log(`I want to learn: ${programingLanguages[i]}`);
+}
+
+console.log(`-----Izvlacenje elemenata iz niza prvo FOR-OF loop-om`);
+
+// ? Prisup uz for-of loop:
+
+for(let language of programingLanguages) {
+    console.log(`I want to learn: ${language}`);
+}
+
+const greetings = 'Welcome';
+
+for(let letter of greetings) {
+    console.log(letter);
+}
+
+// ? FOR-IN loop:
+
+const someUser = {
+    name: 'Marko Markovic',
+    email: 'marko@gmail.com',
+    age: 22,
+    student: true
+}
+
+for(let key in someUser) {
+    console.log(`${key}`); // vraca naziv key-a odnosno property-ja objekta
+}
+
+// ! uz . pristup property-ju objekta ovo ne moze u FOR-IN loop-u
+// for(let key in someUser) {
+//     console.log(`${key} : ${someUser.key}`);
+// }
+
+for(let key in someUser) {
+    console.log(`${key} : ${someUser[key]}`);
+}
+
+// ! Kombinacija FOR-OF i FOR-IN loop-a:
+
+const bankAccaunt = {
+    owner: 'Miroljub Pertovic',
+    pin: 1389,
+    phone: '555-333',
+    transactions: ['+300', '-250', '+700', '-25', '+800']
+}
+
+console.log(`------Kombinovanje loopova`);
+
+for(let prop in bankAccaunt) {
+    console.log(`${prop} : ${bankAccaunt[prop]}`);
+    if(prop === 'transactions') { // 'transaction' === 'transaction'
+        for(let transactions of bankAccaunt.transactions) {
+            console.log(transactions);
+        }
+    }
+}
+
+// ! WHILE loop
+
+let userLoggedIn = true;
+let i = 0;
+
+// ! Ovo vraca endless loop(beskonacnu petlju)
+// while(userLoggedIn) {
+//     console.log(i);
+//     i++;
+// }
+
+while(i<5) {
+    console.log(`While counter i value: ${i}`);
+    i++;
+}
+
+// ! DO WHILE loop:
+
+i = 0;
+
+do {
+    console.log(i);
+    i++
+} 
+while(i<=5);
 
