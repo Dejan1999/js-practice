@@ -814,34 +814,6 @@ for(let i = 1; i <= 100; i++) {
 
 console.log(`Sum of first 100 natural number is: ${sum}`);
 
-// ! URADI ZA VIKEND OBAVEZNO:
-
-// TODO: 
-
-// 1. Uporediti vrednost kreirane varijable (const someNum = prompt('Please enter your number')) pomocu ternarnog operatora tako da se ispise da li je broj pozitivan ili negativan
-// 2. Dodati OR (||) logicki operator kako bi se proverilo da li je someNum vrednost nula ili veca od nule i rezultat ispisati na konzoli zajedno
-// 3. Dodati breakpoint u prethodnom izvrsavanju if bloka i utvrditi potencijalnu gresku na osnovu iscitavanja vrednosti
-// 4. za svaku liniju koda u nastavku ispisati sta vraca:
-// /**
-// * const userEmail = 'marko@gmail.com';
-// const backupEmail = '';
-// console.log(userEmail === 'marko@gmail.com');
-// console.log(userEmail);
-// console.log(userEmail || null);
-// console.log(backupEmail || 'milan@gmail.com');
-// console.log(backupEmail || '');
-// console.log(backupEmail || null || 'petar@gmail.com');
-// console.log(userEmail && 'petar@gmail.com');
-// console.log(backupEmail && 'petar@gmail.com');
-// console.log(userEmail && '');
-// *
-// */
-// 5. Kreirati varijablu "dayOfTheWeek" i postaviti na danasnji dan (hardkodovati, npr: 'tuesday'). Promeniti case-ove switch opcijom i u skladu sa tim ispisati vrednost na konzoli.
-// 6. Ispisati proizvod svih brojeva od 1 do 10
-
-// ! DOMACI ZA VIKEND(ovaj iznad);
-
-
 console.log(`-----------------------`);
 
 // ! FOR-OF loop:
@@ -936,3 +908,164 @@ do {
 } 
 while(i<=5);
 
+console.log(`---------break and continue-----`);
+
+// ! BREAK and CONTINUE:
+
+// ? break -> se koristi kada hocemo da prekinemo neku petlju u odredjenoj iteraciji (u odredjenom momentu)
+
+for(let i = 0; i < 5; i++) {
+    if(i === 4) {
+        break;
+    }
+    console.log(`Number is: ${i}`);
+}
+
+// ? continue -> se korisiti ako hocemo da preskocimo odredjenu iteraciju ako je neki uslov zadovoljen
+
+for(let i = 0; i < 5; i++) {
+    if(i === 3) {
+        continue;
+    }
+    console.log(`Number: ${i}`);
+}
+
+console.log(`---------TRY-CATCH-FINALLY-----`);
+
+// ! TRY, CATCH, FINALLY blokovi:
+
+// ? try- u ovaj blok ide kod koji moze da baci neki error
+// ? catch - u ovaj blok ide kod koji je hendlovanje greske uhvacene u try bloku i obradjivanje te greske
+// ? finally - se uvke izvrsava bez obzira da li je try blok prosao ili je uhvacena neka greska
+// ? najcesce se koristi za hendlovanje nekih nework greski
+
+try {
+    // console.log(`Testing try block`);
+    console.log(someRandomVariable);
+} catch(error) {
+    console.log(error.name + ' ' + error.message);
+} finally {
+    console.log(`Finally block is always happening`);
+}
+
+
+// TODO: 
+
+// 1. Uporediti vrednost kreirane varijable (const someNum = prompt('Please enter your number')) pomocu ternarnog operatora tako da se ispise da li je broj pozitivan ili negativan
+// 2. Dodati OR (||) logicki operator kako bi se proverilo da li je someNum vrednost nula ili veca od nule i rezultat ispisati na konzoli zajedno
+// 3. Dodati breakpoint u prethodnom izvrsavanju if bloka i utvrditi potencijalnu gresku na osnovu iscitavanja vrednosti
+// 4. za svaku liniju koda u nastavku ispisati sta vraca:
+// /**
+// * const userEmail = 'marko@gmail.com';
+// const backupEmail = '';
+// console.log(userEmail === 'marko@gmail.com');
+// console.log(userEmail);
+// console.log(userEmail || null);
+// console.log(backupEmail || 'milan@gmail.com');
+// console.log(backupEmail || '');
+// console.log(backupEmail || null || 'petar@gmail.com');
+// console.log(userEmail && 'petar@gmail.com');
+// console.log(backupEmail && 'petar@gmail.com');
+// console.log(userEmail && '');
+// *
+// */
+// 5. Kreirati varijablu "dayOfTheWeek" i postaviti na danasnji dan (hardkodovati, npr: 'tuesday'). Promeniti case-ove switch opcijom i u skladu sa tim ispisati vrednost na konzoli.
+// 6. Ispisati proizvod svih brojeva od 1 do 10
+// 7. Kreirati niz "foreignLanguages" i 3 jezika dodati u njega. Svaki jezik treba da ima svoj naziv i recenicu na tom jeziku.
+// 8. Nakon toga, proci kroz niz jezika i ispisati svaki element u formatu:
+// 'Here is a sentence on LANGUAGE_NAME : LANGUAGE_SENTENCE'
+// 9. Za PRVI jezik iz foreignLanguages dodati (nalepiti) jos jedan property -> teachers niz nastavnika koji predaju jezik (3).
+// Za svakog od nastavnika napraviti property firstName i lastName i dodeliti neke vrednosti.
+// 10. Ispisati redni broj nastavnika te njegovo ime i prezime i taj jezik koji predaje u formatu:
+// Teacher number BROJ : IME PREZIME is teaching JEZIK
+
+// 1. 
+let someNum = prompt('Please enter your number');
+
+const myResult = someNum > 0 ? 'Number is positive' : 'Number is negative';
+
+console.log(myResult);
+
+// 2. 
+if (someNum > 0 || someNum === 0) {
+  console.log('Broj je nula ili pozitivan');
+} else {
+  console.log('Broj je negativan');
+}
+
+// 4.
+const userEmail = 'marko@gmail.com';
+const backupEmail = '';
+
+console.log(userEmail === 'marko@gmail.com');   // true
+console.log(userEmail);                         // 'marko@gmail.com'
+console.log(userEmail || null);                 // 'marko@gmail.com'
+console.log(backupEmail || 'milan@gmail.com');  // 'milan@gmail.com'
+console.log(backupEmail || '');                 // ''
+console.log(backupEmail || null || 'petar@gmail.com'); // 'petar@gmail.com'
+console.log(userEmail && 'petar@gmail.com');    // 'petar@gmail.com'
+console.log(backupEmail && 'petar@gmail.com');  // '' (prvi operand je falsy)
+console.log(userEmail && '');                   // '' (drugi operand je falsy)
+
+// 5.
+
+const dayOfTheWeek = 'tuesday'; // hardkodovan primer
+
+switch (dayOfTheWeek) {
+  case 'monday':
+    console.log('Danas je ponedeljak.');
+    break;
+  case 'tuesday':
+    console.log('Danas je utorak.');
+    break;
+  case 'wednesday':
+    console.log('Danas je sreda.');
+    break;
+  case 'thursday':
+    console.log('Danas je četvrtak.');
+    break;
+  case 'friday':
+    console.log('Danas je petak.');
+    break;
+  case 'saturday':
+  case 'sunday':
+    console.log('Vikend je!');
+    break;
+  default:
+    console.log('Nepoznat dan.');
+}
+
+// 6.
+let proizvod = 1;
+for (let i = 1; i <= 10; i++) {
+  proizvod *= i;
+}
+console.log('Proizvod svih brojeva od 1 do 10 je:', proizvod); // 3628800
+
+// 7.
+const foreignLanguages = [
+  { name: 'English', sentence: 'Hello, how are you?' },
+  { name: 'Spanish', sentence: 'Hola, ¿cómo estás?' },
+  { name: 'German', sentence: 'Hallo, wie geht es dir?' }
+];
+
+
+// 8.
+foreignLanguages.forEach(lang => {
+  console.log(`Here is a sentence on ${lang.name}: ${lang.sentence}`);
+});
+
+
+// 9.
+foreignLanguages[0].teachers = [
+  { firstName: 'John', lastName: 'Smith' },
+  { firstName: 'Emma', lastName: 'Johnson' },
+  { firstName: 'Michael', lastName: 'Brown' }
+];
+
+// 10.
+foreignLanguages[0].teachers.forEach((teacher, index) => {
+  console.log(
+    `Teacher number ${index + 1}: ${teacher.firstName} ${teacher.lastName} is teaching ${foreignLanguages[0].name}`
+  );
+});
