@@ -1,3 +1,5 @@
+// 'use strict';
+
 // ! Variables(var, const, let):
 
 // ? Let (1. mogu se pregaziti vrednosti 2. let varijable mozemo deklarisati i inicijalizovati)
@@ -1009,7 +1011,7 @@ console.log(userEmail && '');                   // '' (drugi operand je falsy)
 
 // 5.
 
-const dayOfTheWeek = 'tuesday'; // hardkodovan primer
+const dayOfTheWeek = 'tuesday'; 
 
 switch (dayOfTheWeek) {
   case 'monday':
@@ -1028,6 +1030,7 @@ switch (dayOfTheWeek) {
     console.log('Danas je petak.');
     break;
   case 'saturday':
+    break;
   case 'sunday':
     console.log('Vikend je!');
     break;
@@ -1069,3 +1072,126 @@ foreignLanguages[0].teachers.forEach((teacher, index) => {
     `Teacher number ${index + 1}: ${teacher.firstName} ${teacher.lastName} is teaching ${foreignLanguages[0].name}`
   );
 });
+
+console.log(`----------------------`);
+
+// ! Razlika izmedju ES5 i ES6(ECMA SCRIPT)
+
+// VAR vs LET vs CONST
+
+// ! 1. razlika -> VAR dozvoljava re-deklarisanje varijabli, dok LET i CONST ne dozvoljavaju.
+
+let city = 'Novi Sad';
+const city1 = 'Beograd';
+
+// ! Nevalidan kod:
+// const city1 = 'Nis';
+// let city = 'New York';
+
+city ='Berlin';
+
+// * VS
+
+// ? Ovo moze da se radi ali se smatra losom pojavom posto se gubi kontrola nad kodom.
+var country = 'Serbia';
+var country = 'Austria';
+
+console.log(`Country is: ${country}`);
+
+// ! 2. razlika -> VAR se kreira ili GLOBALNO ili na nivou funkcije.
+
+var check = true;
+
+if(check) {
+    var zipCode = 21000;
+}
+
+console.log(`Zip Code: ${zipCode}`); // const i let ovo ne mogu
+
+// ! 3. razlika -> Hoisting
+
+console.log(myNumb);
+// let myNumb = 55; // ! Ovo ne moze sa const i let
+var myNumb = 55; // undefined
+
+/**
+ * var myNumb;
+ * console.log(myNumb); -> undefined
+ * myNumb = 55;
+ * console.log(myNumb); -> 55
+ */
+
+function someFunction() {
+    console.log(randomNumber);
+    var randomNumber = 7;
+}
+
+// ! STRICT MODE:
+
+// 1. slucja:
+var variable1 = 'bla';
+var variable1 = 'nesto';
+
+// 2. slucaj:
+variable2 = 'Jupiter'; // ! LOSA PRAKSA
+
+console.log(variable2); // ovo vraca Jupiter i ovo nije dobra praksa(zato se korisit 'use strict';)!
+
+// ! Struktur JavaScript Engine-a(HEAP i STACK memorija)
+
+// HEAP(dugotrajna) -> Je memorija kojom upravlja (u nasem slucaju  browser) i u njoj se cuvaju razliciti podaci
+// STAKE(kratkotrajna) -> Je memorija koja prati korake izvrsavanja naseg programa pa samim tim i funkcije koje se izvrsavaju
+
+function getPlanetName(planetName) {
+    return planetName;
+}
+
+function printPlanetName() {
+    const planet = getPlanetName('Earth');
+    console.log(`We are traveling to planet: ${planet}`);
+}
+
+printPlanetName();
+
+// ! Primitivni vs Referentni tipovi podataka
+
+// PRIMITIVNI tipovi -> null, undefined, numbers(23), strings('hello world'), boolean(true-false).
+
+let primitive1 = null;
+let primitive2 = undefined;
+let primitive3 = 29;
+let primitive4 =  'Good Morning!';
+let primitive5 = false;
+
+// REFERENTNI tipovi -> objekti i nizovi.
+
+let referenceObj = {
+    name: 'Dejan',
+    lastName: 'Karakasevic'
+}
+
+let referenceArr = [1,2,3,4];
+
+// ? Kopiranje primitivnih tipova podataka:
+
+let primitive4Copy = primitive4;
+console.log(primitive4Copy);
+
+primitive4Copy = 'Good Night';
+console.log(primitive4Copy);
+console.log(primitive4);
+
+// ? Kopiranje referentnih tipova podataka
+
+let referenceObjCopy = referenceObj;
+console.log(referenceObjCopy);
+
+referenceObjCopy.name = 'Petar';
+console.log(referenceObjCopy);
+console.log(referenceObj);
+
+let referenceArrCopy = referenceArr;
+
+referenceArrCopy[0] = 81;
+console.log(referenceArrCopy);
+console.log(referenceArr);
