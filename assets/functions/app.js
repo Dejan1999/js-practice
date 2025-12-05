@@ -197,3 +197,103 @@ stopButton.addEventListener('click', function() {
   clearInterval(intervalId); 
   intervalId = null;          
 });
+
+
+/** *
+ * TODO zadaci sa interneta
+ * */
+
+// ===============================
+// FUNKCIJE I ARROW FUNKCIJE
+// ===============================
+
+// Zadatak 1
+const multiplyNumbers = (a, b = 5) => a * b;
+console.log("Zadatak 1:", multiplyNumbers(4), multiplyNumbers(4, 3));
+
+// Zadatak 2
+const greet = (name = "Guest") => `Hello, ${name}!`;
+console.log("Zadatak 2:", greet(), greet("Marko"));
+
+
+// ===============================
+// OBJEKTI I METODE
+// ===============================
+
+// Zadatak 3 i 4
+const car = {
+  brand: "Audi",
+  model: "A4",
+  year: 2020,
+  printInfo() {
+    console.log(`${this.brand} ${this.model} (${this.year})`);
+  },
+  updateYear(newYear) {
+    this.year = newYear;
+    return `Updated year: ${newYear}`;
+  }
+};
+
+console.log("Zadatak 3:");
+car.printInfo();
+
+console.log("Zadatak 4:");
+console.log(car.updateYear(2024));
+car.printInfo();
+
+
+// ===============================
+// DOM MANIPULACIJA + EVENTI
+// ===============================
+
+// Zadatak 5 – Promena pozadine
+document.getElementById("colorBtn").addEventListener("click", () => {
+  const randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+  document.body.style.background = randomColor;
+  console.log("Nova boja:", randomColor);
+});
+
+// Zadatak 6 – Timer start/stop
+let intervalId2;
+
+document.getElementById("startTimer").addEventListener("click", () => {
+  let counter = 0;
+  intervalId2 = setInterval2(() => {
+    console.log("Counter:", counter++);
+  }, 1000);
+});
+
+document.getElementById("stopTimer").addEventListener("click", () => {
+  clearInterval(intervalId);
+  console.log("Timer zaustavljen.");
+});
+
+// Zadatak 7 – Odbrojavanje
+document.getElementById("countDownBtn").addEventListener("click", () => {
+  let time = 10;
+  const countdownEl = document.getElementById("countdown");
+
+  countdownEl.textContent = time;
+
+  const countdownInterval = setInterval(() => {
+    time--;
+    countdownEl.textContent = time;
+
+    if (time === 0) {
+      clearInterval(countdownInterval);
+      countdownEl.textContent = "Time's up!";
+    }
+  }, 1000);
+});
+
+// Zadatak 8 – Pozdrav iz inputa
+document.getElementById("sayHiBtn").addEventListener("click", () => {
+  const name = document.getElementById("nameInput").value;
+  const sayHi = (ime) => console.log(`Hello, ${ime}!`);
+
+  if (name.trim() === "") {
+    console.log("Unesi ime!");
+  } else {
+    sayHi(name);
+  }
+});
